@@ -23,15 +23,13 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-visit BASE_URL + DROPDOWN_PATH
+visit BASE_URL + PRACTICE
 
-# Component - Dropdown-1
-
-
-# Component - Dropdown-2
+# Component - Dropdown-1 - Select Class Example - Select by value
 
 
-# Component - Dropdown-3
+# Component - Dropdown-2 - Select Class Example - Select by index
 
 
-# Component - Dropdown-4
+# Component - Dropdown-3 - Select Class Example - Select by text
+
