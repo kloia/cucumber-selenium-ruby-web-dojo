@@ -1,24 +1,21 @@
 require 'selenium-webdriver'
+require 'webdrivers'
 require_relative '../../config'
 
 include BaseConstants
 
-driver = Selenium::WebDriver.for :chrome
+driver = Selenium::WebDriver.for(:chrome)
 
-input_text = 'Kloia Dojo'
+first_name = 'Kloia'
 
 driver.navigate.to BASE_URL + INPUT_PATH
 
-# Component - Input-1
+# Component - First Name
 
+# Component - Last Name
 
-# Component - Input-2
+# Component - Email Address
 
+# Component - Password
 
-# Component - Input-3
-
-
-# Component - Input-4
-
-
-# Component - Input-5
+# Component - Confirm Password

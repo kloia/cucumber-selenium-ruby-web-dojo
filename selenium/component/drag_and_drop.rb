@@ -6,11 +6,11 @@ include BaseConstants
 
 driver = Selenium::WebDriver.for :chrome
 
-driver.navigate.to HEROKU_APP_URL + FILE_UPLOAD_PATH
+driver.navigate.to SELENIUM_DEV_URL + DRAG_AND_DROP_PATH
 
-# Component - File Upload-1
+# Component - Drag & Drop
 
+# Companent - Print Dropped Text
 
-# Component - Verify File Title
 
 

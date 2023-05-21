@@ -1,13 +1,20 @@
 require 'selenium-webdriver'
+require 'webdrivers'
 require_relative '../../config'
 
 include BaseConstants
 
 driver = Selenium::WebDriver.for :chrome
 
-driver.navigate.to BASE_URL + REDIRECT_LINK_PATH
+driver.navigate.to HEROKU_APP_URL + REDIRECT_LINK_PATH
 
-# Component - Redirect Link-1
+# Component - Click Redirect Link
 
 
-# Component - Redirect Link-2
+# Component - Print Page Title & Url
+
+
+# Component - Back
+
+
+# Component - Print Url
