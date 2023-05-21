@@ -7,6 +7,7 @@ module BaseConstants
   N11_URL = 'https://www.n11.com/'.freeze
   PRACTICE = '/practice'.freeze
   INPUT_PATH = '/register'.freeze
+  LOGIN_PATH = '/login'.freeze
   CHECKBOX_PATH = '/checkbox'.freeze
   DROPDOWN_PATH = '/dropdown'.freeze
   HOVER_PATH = '/hovers'.freeze
