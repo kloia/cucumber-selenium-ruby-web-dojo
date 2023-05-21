@@ -1,4 +1,5 @@
 require 'selenium-webdriver'
+require 'webdrivers'
 require_relative '../../config'
 
 include BaseConstants
@@ -7,12 +8,15 @@ driver = Selenium::WebDriver.for :chrome
 
 wait = Selenium::WebDriver::Wait.new(timeout: WAIT_TIME)
 
-driver.navigate.to BASE_URL + BUTTON_PATH
+driver.navigate.to BASE_URL + PRACTICE
 
-# Component - Button-1 Click "Button 1" and verify text
-
-
-# Component - Button-2 Click "Button 2" and verify text
+# Component - Button Click "Open Tab"
 
 
-# Component - Button-3 Click "Button 3" and verify text
+# Component - Print Page Title + Current Url
+
+
+# Component - Switch to First Tab
+
+
+# Component - Print Page Title

@@ -1,19 +1,16 @@
 require 'selenium-webdriver'
+require 'webdrivers'
 require_relative '../../config'
 
 include BaseConstants
 
 driver = Selenium::WebDriver.for :chrome
 
-driver.navigate.to BASE_URL + CHECKBOX_PATH
+driver.navigate.to BASE_URL + PRACTICE
 
-# Component - Checkbox-1
+# Component - Checkbox Example - Checkbox-1 - BMW
 
+# Component - Checkbox Example - Checkbox-2 - Benz
 
-# Component - Checkbox-2
+# Component - Checkbox Example - Checkbox-3 - Honda
 
-
-# Component - Checkbox-3
-
-
-# Component - Checkbox-4
