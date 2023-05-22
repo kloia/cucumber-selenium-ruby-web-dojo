@@ -15,7 +15,7 @@ end
 Capybara.configure do |config|
   config.default_driver = :selenium
   config.default_selector = :css
-  config.app_host = BASE_URL
+  config.app_host = N11_URL
   config.default_max_wait_time = WAIT_TIME
 end
 
@@ -23,13 +23,28 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-visit BASE_URL + PRACTICE
+visit N11_URL + N11_REGISTER
+find(".btnBlack.close").click
 
-# Component - Dropdown-1 - Select Class Example - Select by value
-
-
-# Component - Dropdown-2 - Select Class Example - Select by index
+# Component - Dropdown-1 - Birthday
 
 
-# Component - Dropdown-3 - Select Class Example - Select by text
+
+# Component - Verify - Birthday Selected
+
+
+
+# Component - Dropdown-2 - Select Birth Month
+
+
+
+# Component - Verify - Birth Month Selected
+
+
+
+# Component - Dropdown-3 - Select Birth Year
+
+
+
+# Component - Verify - Birth Year Selected
 
