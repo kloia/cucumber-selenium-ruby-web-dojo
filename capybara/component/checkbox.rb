@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/dsl'
 require 'rspec'
+require 'webdrivers'
 require_relative '../../config'
 
 include BaseConstants
@@ -22,15 +23,23 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-visit BASE_URL + CHECKBOX_PATH
+visit BASE_URL + PRACTICE
 
-# Component - Checkbox-1
+# Component - Checkbox Example - Checkbox-1 - BMW
+
+# Component - Verify BMW is checked
+
+# Component - Checkbox Example - Checkbox-2 - Benz
+
+# Component - Verify Benz is checked
+
+# Component - Checkbox Example - Checkbox-3 - Honda
+
+# Component - Verify Honda is checked
+
+# Component - Checkbox Example - Uncheck - Honda
+
+# Component - Verify Honda is unchecked
 
 
-# Component - Checkbox-2
 
-
-# Component - Checkbox-3
-
-
-# Component - Checkbox-4
