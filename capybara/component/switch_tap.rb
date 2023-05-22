@@ -15,7 +15,7 @@ end
 Capybara.configure do |config|
   config.default_driver = :selenium
   config.default_selector = :css
-  config.app_host = BASE_URL
+  config.app_host = N11_URL
   config.default_max_wait_time = WAIT_TIME
 end
 
@@ -23,13 +23,23 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-visit BASE_URL + BUTTON_PATH
+visit N11_URL
 
-# Component - Button-1 Click "Button 1" and verify text
-
-
-# Component - Button-2 Click "Button 2" and verify text
+# Component - Open New Tab
 
 
-# Component - Button-3 Click "Button 3" and verify text
+# Component - Switch New Tab
+
+
+# Component - Visit https://www.n11.com/giyim-ayakkabi
+
+
+# Component - Verify page title
+
+
+# Component - Switch First Tab
+
+
+# Component - Verify first title
+
 
