@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/dsl'
 require 'rspec'
+require 'webdrivers'
 require_relative '../../config'
 
 include BaseConstants
@@ -14,7 +15,7 @@ end
 Capybara.configure do |config|
   config.default_driver = :selenium
   config.default_selector = :css
-  config.app_host = BASE_URL
+  config.app_host = N11_URL
   config.default_max_wait_time = WAIT_TIME
 end
 
@@ -22,15 +23,28 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-visit BASE_URL + DROPDOWN_PATH
+visit N11_REGISTER
+find(".btnBlack.close").click
 
-# Component - Dropdown-1
+# Component - Dropdown-1 - Birthday
 
+date = Date.today
+bday= date.to_s.split("-")[2]
+select bday, from: "birthDay"
 
-# Component - Dropdown-2
+# Component - Verify - Birthday Selected
 
+page.should have_select("birthDay", selected: bday)
+# Component - Dropdown-2 - Select Birth Month
 
-# Component - Dropdown-3
+select "10", from: "birthMonth"
+# Component - Verify - Birth Month Selected
+page.should have_select("birthMonth", selected: "10")
 
+date = Date.today
+puts date.strftime("%d/%m/%Y")
+puts date.strftime("%d/%m/%Y").split("/")[0]
+# Component - Dropdown-3 - Select Birth Year
 
-# Component - Dropdown-4
+# Component - Verify - Birth Year Selected
+

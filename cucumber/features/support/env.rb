@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/dsl'
 require 'rspec'
+require 'webdrivers'
 require_relative '../../../config'
 
 include BaseConstants
