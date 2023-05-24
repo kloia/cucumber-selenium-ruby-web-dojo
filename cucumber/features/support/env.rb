@@ -1,7 +1,13 @@
 require 'capybara'
 require 'capybara/dsl'
 require 'rspec'
+require 'webdrivers'
+require 'allure-cucumber'
+require 'spreadsheet'
+
 require_relative '../../../config'
+require_relative '../../helpers/driver'
+require_relative '../../helpers/screenshots_helper'
 
 include BaseConstants
 include Capybara::DSL

@@ -32,3 +32,27 @@ Bu proje web test automation dojo
     gem install bundler
     bundle install
     ```
+# Raporlama
+* Raporlama aracı olarak allure report kullanılmaktadır.
+
+
+* Allure report oluşturmak için allure pc'nizde kurulu olmalıdır.
+
+    * Mac kurulum
+
+      `brew install allure`
+
+    * Windows Kurulum
+
+        * Powershell açılır. Aşağıdaki komut çalıştırılır. Scoop kurulumu yapılır.
+
+          `iwr -useb get.scoop.sh | iex`
+
+        * Scoop başarılı kurulduktan sonra komut satırı açılır. Aşağıdaki komut çalıştırılır. Allure kurulumu yapılır.
+
+          `scoop install allure`
+
+
+* Allure report generate etmek için proje dizininde oluşan allure-results folder yolu verilerek aşağıdaki komut çalıştırılır.
+
+  `allure serve cucumber/output/allure-results `
