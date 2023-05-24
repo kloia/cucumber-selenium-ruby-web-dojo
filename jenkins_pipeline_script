@@ -1,0 +1,77 @@
+pipeline {
+    agent { label 'automation-ig' }
+        parameters {
+        choice(name: 'Headless', choices: ['true', 'false'], description: '')
+        string(name: 'TagName', defaultValue: '@smoke', description: 'Multiple Tag--> @success_login or @login_with_invalid_phone_no or @login_with_null_phone_no , Single Tag--> @smoke')
+        choice(name: 'Browser', choices: ['chrome','remote-chrome','firefox'], description: '')
+        string(name: 'Environment', defaultValue: 'beta', description: '')
+        string(name: 'ThreadCount', defaultValue: '1', description: '')
+        string(name: 'Retry', defaultValue: '1', description: '')
+        string(name: 'IgDataBranchName', defaultValue: 'master', description: '')
+            gitParameter name: 'BRANCH_TAG',
+                        type: 'PT_BRANCH',
+                        defaultValue: 'master',
+                        selectedValue: 'DEFAULT',
+                        quickFilterEnabled: true,
+                        sortMode: 'DESCENDING_SMART',
+                        tagFilter: '*',
+                        branchFilter: 'origin/(.*)',
+                        useRepository: '.*.git',
+                        description: 'Select your branch'
+    }
+    stages {
+    }
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM',
+                           branches: [[name: "${params.BRANCH_TAG}"]],
+                            doGenerateSubmoduleConfigurations: false,
+                            extensions: [],
+                            gitTool: 'default',
+                            submoduleCfg: [],
+                            userRemoteConfigs: [[credentialsId:'jenkinsdeki git credential adı',url: 'git proje urli']]
+                        ])
+            }
+        }
+        stage('Running Test') {
+            steps {
+                sh """
+                    bundle install
+                    bundle update
+                    bundle exec parallel_cucumber -n ${params.ThreadCount.toInteger()} -o '-p parallel --tags "${TagName}" headless=${Headless} browser=${Browser} env=${params.Environment} --retry ${params.Retry.toInteger()}'
+                """
+            }
+        }
+    }
+    post {
+        always {
+            allure([
+                includeProperties: false,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'output/allure-results']]
+            ])
+        }
+        success{
+            script{
+                echo "${env.BUILD_URL}job/allure"
+                slackSend(
+                        channel: "qa-jenkins",
+                        color: "#70FD01",
+                        iconEmoji: 'jenkins',
+                        message:":white_check_mark: *(<${env.JOB_URL}${BUILD_NUMBER}/allure| Web Test Automation Report>)*\n\n "
+                )
+           }
+        }
+        failure{
+            script{
+                slackSend(
+                    channel: "qa-jenkins",
+                    color: "#FF0000",
+                    message:":alert: *(<${env.JOB_URL}${BUILD_NUMBER}/allure| Web Test Automation Report>)*\n\n  "
+                )
+           }
+        }
+    }
+}
