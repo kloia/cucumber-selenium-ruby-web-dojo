@@ -5,11 +5,14 @@ require 'webdrivers'
 require 'allure-cucumber'
 require 'spreadsheet'
 
+#proje dosyaları
 require_relative '../../../config'
-require_relative '../../helpers/driver'
-require_relative '../../helpers/screenshots_helper'
+require_relative '../../../url_constants'
+#require_relative '../../helpers/driver'
+#require_relative '../../helpers/screenshots_helper'
 
 include BaseConstants
+include UrlConstants
 include Capybara::DSL
 include RSpec::Matchers
 
