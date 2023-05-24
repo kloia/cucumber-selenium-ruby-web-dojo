@@ -27,3 +27,14 @@ Capybara.configure do |config|
   config.app_host = BASE_URL
   config.default_max_wait_time = 10
 end
+
+AllureCucumber.configure do |c|
+  c.results_directory = 'output/allure-results'
+  c.clean_results_directory = true
+  c.environment_properties = {
+    env: "test",
+    browser: ENV["browser"] || "chrome",
+    headless: "true",
+    base_url: BASE_URL
+  }
+end
