@@ -1,1 +1,3 @@
 .idea
+/cucumber/output/
+/Gemfile.lock
