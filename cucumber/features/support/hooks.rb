@@ -8,8 +8,9 @@ Before(tag = "@kep") do |scenario|
 end
 
 After do |scenario|
+  scenario_name = scenario.name.gsub(/[^A-Za-z0-9 ]/, "").gsub(/\s+/, "_")
   puts "Scenario has been finished #{scenario.name}"
   if scenario.failed?
-    ScreenshotHelper.take_screenshot(scenario.name)
+    ScreenshotHelper.take_screenshot(scenario_name)
   end
 end

@@ -7,7 +7,7 @@ class  DriverHelper
     case browser
     when "chrome"
       options = Selenium::WebDriver::Chrome::Options.new
-      options.add_argument("--headless") if headless_mode == true
+      options.add_argument("--headless") if headless_mode == "true"
       options.add_argument('--disable-popup-blocking')
       options.add_argument('--ignore-certificate-errors')
       options.add_argument('--disable-notifications')
@@ -16,7 +16,7 @@ class  DriverHelper
       end
     when "firefox"
       options = Selenium::WebDriver::Firefox::Options.new
-      options.add_argument("--headless") if headless_mode == true
+      options.add_argument("--headless") if headless_mode == "true"
       Capybara.register_driver :selenium do |app|
         Capybara::Selenium::Driver.new(app, browser: :firefox, options:options)
       end

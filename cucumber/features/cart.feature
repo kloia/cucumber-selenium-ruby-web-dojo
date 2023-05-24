@@ -2,8 +2,8 @@ Feature: Cart Test Suite
 
   Background:
     Given go to website
-    And login with valid_user
-
+    And login with valid
+  @smoke
   Scenario: Add product to cart
     When search "iPhone 14"
     And add "1" of product
