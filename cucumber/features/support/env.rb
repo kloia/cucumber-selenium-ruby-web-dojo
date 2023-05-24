@@ -10,7 +10,8 @@ require_relative '../../../config'
 require_relative '../../../url_constants'
 require_relative '../../helpers/DriverHelper'
 require_relative '../../../resource/context'
-#require_relative '../../helpers/screenshots_helper'
+require_relative '../../config/base_config'
+require_relative '../../helpers/screenshot_helper'
 
 include BaseConstants
 include UrlConstants
@@ -24,7 +25,7 @@ end
 Capybara.configure do |config|
   config.default_driver = :selenium
   config.default_selector = :css
-  config.app_host = BASE_URL
+  config.app_host = N11_URL
   config.default_max_wait_time = 10
 end
 

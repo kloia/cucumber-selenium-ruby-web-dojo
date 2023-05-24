@@ -54,5 +54,9 @@ Bu proje web test automation dojo
 
 
 * Allure report generate etmek için proje dizininde oluşan allure-results folder yolu verilerek aşağıdaki komut çalıştırılır.
+   
+   terminalde cucumber dizininden çalıştırmak için
+  `allure serve output/allure-results `
 
-  `allure serve cucumber/output/allure-results `
+   terminalde proje dizininden çalıştırmak için
+    `allure serve cucumber/output/allure-results `

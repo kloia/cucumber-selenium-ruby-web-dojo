@@ -1,7 +1,8 @@
+home_page = HomePage.new
 And(/^go to my basket$/) do
-  find(".myBasket").click
+  home_page.click_basket
 end
 
 And(/^verify user icon$/) do
-  page.should have_selector("a.user", text:$user[:user_icon])
+  home_page.verify_user_icon
 end

@@ -1,9 +1,7 @@
+login_page = LoginPage.new
+
 Given(/^login with (valid|admin|standart)$/) do |user_type|
   $user = USER[user_type.to_sym]
-  $user = USER[user_type.to_sym]
-  find("a.btnSignIn").click
-  #click_link("Giriş Yap")
-  fill_in "email", with:  $user[:username]
-  fill_in "password", with:  $user[:password]
-  find(:id, "loginButton").click
+  login_page.click_sign_in
+  login_page.login($user[:username],$user[:password])
 end

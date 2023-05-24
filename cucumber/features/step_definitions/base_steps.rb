@@ -1,3 +1,3 @@
 Given(/^go to website$/) do
-  visit "https://www.n11.com"
+  visit N11_URL
 end
