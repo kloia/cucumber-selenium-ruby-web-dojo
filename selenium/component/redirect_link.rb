@@ -8,13 +8,15 @@ driver = Selenium::WebDriver.for :chrome
 
 driver.navigate.to HEROKU_APP_URL + REDIRECT_LINK_PATH
 
-# Component - Click Redirect Link
+# Component - Redirect Link-1
+driver.find_element(:id, "redirect").click
+
+redirect_text = driver.find_element(:css,"#content h3").text
 
 
-# Component - Print Page Title & Url
+puts driver.current_url
 
+driver.navigate.back
 
-# Component - Back
+puts driver.current_url
 
-
-# Component - Print Url

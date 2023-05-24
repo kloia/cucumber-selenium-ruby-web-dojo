@@ -3,7 +3,6 @@ Feature: Test Automation Dojo
   Background:
     Given  go to website
 
-  @sinem
   Scenario: Verify logo
     Then verify logo is displayed
 

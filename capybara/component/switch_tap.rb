@@ -27,19 +27,24 @@ visit N11_URL
 
 # Component - Open New Tab
 
+open_new_window
 
 # Component - Switch New Tab
 
+page.driver.browser.switch_to.window(page.driver.browser.window_handles[1])
 
 # Component - Visit https://www.n11.com/giyim-ayakkabi
 
+visit "https://www.n11.com/giyim-ayakkabi"
 
 # Component - Verify page title
 
+title.should == "Giyim & Ayakkabı - Güneş Gözlüğü & Aksesuar - n11.com"
 
 # Component - Switch First Tab
 
+page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
 
 # Component - Verify first title
 
-
+title.should == "n11 - Hayat Sana Gelir"

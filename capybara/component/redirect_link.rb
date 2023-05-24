@@ -27,14 +27,23 @@ visit N11_URL
 
 # Component - Click Login-1
 
+click_link("Giriş Yap")
 
-# Component -Verify redirect page
+# Component -Verify redirect page & current url
 
-
-# Component - Verify current url
-
+puts current_url
+current_url.should == "https://www.n11.com/giris-yap"
+assert_current_path("https://www.n11.com/giris-yap")
+title.should == "Giriş Yap - n11.com"
+puts title
+assert_title("Giriş Yap - n11.com")
 
 # Component - Navigate to the previous page
 
+page.go_back
 
 # Component - Verify current url
+puts current_url
+current_url.should == "https://www.n11.com/"
+assert_current_path("https://www.n11.com/")
+puts title

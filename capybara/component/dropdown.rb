@@ -23,28 +23,28 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-visit N11_URL + N11_REGISTER
+visit N11_REGISTER
 find(".btnBlack.close").click
 
 # Component - Dropdown-1 - Birthday
 
-
+date = Date.today
+bday= date.to_s.split("-")[2]
+select bday, from: "birthDay"
 
 # Component - Verify - Birthday Selected
 
-
-
+page.should have_select("birthDay", selected: bday)
 # Component - Dropdown-2 - Select Birth Month
 
-
-
+select "10", from: "birthMonth"
 # Component - Verify - Birth Month Selected
+page.should have_select("birthMonth", selected: "10")
 
-
-
+date = Date.today
+puts date.strftime("%d/%m/%Y")
+puts date.strftime("%d/%m/%Y").split("/")[0]
 # Component - Dropdown-3 - Select Birth Year
-
-
 
 # Component - Verify - Birth Year Selected
 

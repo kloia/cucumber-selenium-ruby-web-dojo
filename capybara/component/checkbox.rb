@@ -27,8 +27,20 @@ visit BASE_URL + PRACTICE
 
 # Component - Checkbox Example - Checkbox-1 - BMW
 
+check "bmwcheck"
+
 # Component - Verify BMW is checked
 
+page.should have_field("bmwcheck", checked:true)
+puts find(:id,"bmwcheck").checked?
+deneme = find(:id,"bmwcheck").checked? ?  "geldi" : "gelmedi"
+find(:id,"bmwcheck").checked?.should == true
+puts deneme
+uncheck "bmwcheck"
+
+page.should have_field("bmwcheck", checked:false)
+
+sleep 3
 # Component - Checkbox Example - Checkbox-2 - Benz
 
 # Component - Verify Benz is checked

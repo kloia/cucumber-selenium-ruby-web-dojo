@@ -16,8 +16,9 @@ module BaseConstants
   DATE_PICKER_PATH = '/datepicker'.freeze
   FILE_UPLOAD_PATH = '/upload'.freeze
   DRAG_AND_DROP_PATH = '/drag_and_drop'.freeze
-  N11_LOGIN = '/giris-yap'.freeze
   N11_REGISTER = '/uye-ol'.freeze
+  N11_LOGIN = '/giris-yap'.freeze
+
 
 
   WAIT_TIME = 30

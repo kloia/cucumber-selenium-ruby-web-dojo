@@ -23,30 +23,17 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-visit N11_URL + N11_LOGIN
+visit HEROKU_APP_URL + FILE_UPLOAD_PATH
 
-user_name = 'sinemgkorkmaz@gmail.com'
-password = '123456aA'
+# Component - File Upload
 
-# Component - Login
+attach_file("file-upload", File.expand_path("../../resource/big-logo.png"))
+#find(:id,file-upload).send_keys(File.expand_path("../../resource/big-logo.png"))
+click_button("file-submit")
 
-fill_in("email", with: user_name)
+# Component - Verify Upload
 
-find(:id, "password").send_keys(password)
-
-find(:id, "loginButton").click
-
-# Component - Hover - Account Icon
-
-find("a.user").hover
-
-# Component - Click button-Logout
-
-click_link("Çıkış Yap")
-
-# Component - Verify Logout-5
-
-page.should have_selector(".btnSignIn", text: "Giriş Yap")
-page.should have_text("Giriş Yap")
-
+page.should have_text("File Uploaded!")
+page.should have_selector("#uploaded-files", text: "big-logo.png")
 sleep 5
+
