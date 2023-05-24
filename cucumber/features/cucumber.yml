@@ -1,4 +1,4 @@
-default: "-r features/ -d --profile allure_report --profile required "
+default: "-r features/ -d --profile allure_report --profile required --publish-quiet --guess"
 required: "--format pretty"
 allure_report: "--format AllureCucumber::CucumberFormatter --out output/allure-results"
 
