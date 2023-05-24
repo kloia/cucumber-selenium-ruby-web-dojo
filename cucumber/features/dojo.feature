@@ -1,7 +1,7 @@
 Feature: Test Automation Dojo
 
   Background:
-   # Given  go to website
+    Given  go to website
 
   Scenario: Verify logo
     Then verify logo is displayed

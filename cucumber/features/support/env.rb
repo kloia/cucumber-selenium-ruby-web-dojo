@@ -8,7 +8,8 @@ require 'spreadsheet'
 #proje dosyaları
 require_relative '../../../config'
 require_relative '../../../url_constants'
-#require_relative '../../helpers/driver'
+require_relative '../../helpers/DriverHelper'
+require_relative '../../../resource/context'
 #require_relative '../../helpers/screenshots_helper'
 
 include BaseConstants
@@ -25,8 +26,4 @@ Capybara.configure do |config|
   config.default_selector = :css
   config.app_host = BASE_URL
   config.default_max_wait_time = 10
-end
-
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
